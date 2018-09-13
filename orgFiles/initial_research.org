@@ -24,41 +24,54 @@ CLOSED: [2018-09-12 Mi 22:39]
 ** verify_claims/3 (mod, claims, opts) [0/0]
 *** Default and supported behavior
 
-* TODO build_claims/5 [/]
+* TODO build_claims/5 [0/1]
 ** TODO Implement
 
-* TODO create_token/3 [/]
+* TODO create_token/3 [0/1]
 ** TODO Implement
 
-* TODO decode_token/3 [/]
-** TODO Determine what exactly `decode_token/3` does
+* TODO decode_token/3 [1/2]
+** DONE Determine what exactly `decode_token/3` does
+CLOSED: [2018-09-12 Mi 22:54]
 *** Short, initial expectation is returns the claims?
+*** Seems to just return the decoded claims, only works for public
 ** TODO Implement `decode_token/3`
-
-* TODO exchange/5 [0/2]
-** TODO Determine how guardian keys are stored [0/2]
-*** TODO What type are they
-*** TODO How are they fetched?
+*** TODO Ensure this only works for public
+* TODO exchange/5 [1/2]
+** DONE Determine how guardian keys are stored [2/2]
+CLOSED: [2018-09-12 Mi 23:01]
+*** DONE What type are they
+CLOSED: [2018-09-12 Mi 22:59]
+**** They can be whatever the user provides, but typically stringly for config
+*** DONE How are they fetched?
+CLOSED: [2018-09-12 Mi 23:01]
+**** They are fetched either from the `opts` in the function args
+**** OR, they're fetched from Guardian.Config.resolve_value
 ** TODO Implement exchange/5
   
 * TODO peek/2 [1/2]
 ** DONE Determine what exactly `peek/3` does
    CLOSED: [2018-09-12 Mi 22:50]
-** Short, initial expectation is returns the claims? Isn't this decode_token/3?
-** NOTE: This will return the claims as a map
+*** Short, initial expectation is returns the claims? Isn't this decode_token/3?
+*** NOTE: This will return the claims as a map
 ** TODO Implement `peek/3` [0/1]
 *** TODO Grab claims map and return that _only_ on public keys
   
-* TODO refresh/3 [/]
+* TODO refresh/3 [0/1]
 ** TODO This can probably just return the same token--verify this.
   
-* TODO revoke/4 [/]
-** TODO Determine what should be done here, this might not be possible?
-
-* TODO token_id/0 [/]
-** TODO Determine what exactly this should return [/]
-*** TODO Should it always return same thing for a given token?
+* TODO revoke/4 [1/2]
+** DONE Determine what should be done here, this might not be possible?
+CLOSED: [2018-09-12 Mi 22:53]
+*** We should just return {:ok, claims()} here
+** TODO Implement
+* TODO token_id/0 [1/2]
+** DONE Determine what exactly this should return [1/1]
+CLOSED: [2018-09-12 Mi 23:02]
+*** DONE Should it always return same thing for a given token?
+CLOSED: [2018-09-12 Mi 23:02]
+*** This can just be a UUID. The reference JWT impl just returns random UUID
 ** TODO Implement token_id/0
 
-* TODO verify_claims/3 [/]
+* TODO verify_claims/3 [0/1]
 ** TODO Implement
