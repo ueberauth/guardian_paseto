@@ -5,7 +5,7 @@ defmodule GuardianPaseto.MixProject do
     [
       app: :guardian_paseto,
       version: "0.1.0",
-      elixir: "~> 1.6",
+      elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -19,7 +19,7 @@ defmodule GuardianPaseto.MixProject do
 
   defp deps do
     [
-      {:paseto, "~> 0.3.0"}
+      {:paseto, "~> 1.0.0"}
     ]
   end
 end
