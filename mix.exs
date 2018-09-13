@@ -19,7 +19,7 @@ defmodule GuardianPaseto.MixProject do
 
   defp deps do
     [
-      {:paseto, "~> 0.3.0"}
+      {:paseto, "~> 1.0.0"}
     ]
   end
 end
