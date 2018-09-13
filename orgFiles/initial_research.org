@@ -1,6 +1,5 @@
 #+STARTUP: indent
 
-Initial Research for what needs to be done to get Paseto working with Guardian
 * DONE Document all callbacks and determine their status in Paseto
 CLOSED: [2018-09-12 Mi 22:39]
 ** build_claims/5 (module, resource, sub, claims, opts) [0/0]
@@ -25,38 +24,41 @@ CLOSED: [2018-09-12 Mi 22:39]
 ** verify_claims/3 (mod, claims, opts) [0/0]
 *** Default and supported behavior
 
-build_claims/5
-* TODO Implement
+* TODO build_claims/5 [/]
+** TODO Implement
 
-create_token/3
-* TODO Implement
+* TODO create_token/3 [/]
+** TODO Implement
 
-decode_token/3
-* TODO Determine what exactly `decode_token/3` does
-** Short, initial expectation is returns the claims?
-* TODO Implement `decode_token/3`
+* TODO decode_token/3 [/]
+** TODO Determine what exactly `decode_token/3` does
+*** Short, initial expectation is returns the claims?
+** TODO Implement `decode_token/3`
 
-exchange/5
-* TODO Determine how guardian keys are stored [0/2]
-** TODO What type are they
-** TODO How are they fetched?
-* TODO Implement exchange/5
+* TODO exchange/5 [0/2]
+** TODO Determine how guardian keys are stored [0/2]
+*** TODO What type are they
+*** TODO How are they fetched?
+** TODO Implement exchange/5
   
-peek/2
-* TODO Determine what exactly `peek/3` does
+* TODO peek/2 [1/2]
+** DONE Determine what exactly `peek/3` does
+   CLOSED: [2018-09-12 Mi 22:50]
 ** Short, initial expectation is returns the claims? Isn't this decode_token/3?
-* TODO Implement `peek/3`
+** NOTE: This will return the claims as a map
+** TODO Implement `peek/3` [0/1]
+*** TODO Grab claims map and return that _only_ on public keys
   
-refresh/3
-* TODO This can probably just return the same token--verify this.
+* TODO refresh/3 [/]
+** TODO This can probably just return the same token--verify this.
   
-revoke/4 
-* TODO Determine what should be done here, this might not be possible?
+* TODO revoke/4 [/]
+** TODO Determine what should be done here, this might not be possible?
 
-token_id/0
-* TODO Determine what exactly this should return [/]
-** TODO Should it always return same thing for a given token?
-* TODO Implement token_id/0
+* TODO token_id/0 [/]
+** TODO Determine what exactly this should return [/]
+*** TODO Should it always return same thing for a given token?
+** TODO Implement token_id/0
 
-verify_claims/3
-* TODO Implement
+* TODO verify_claims/3 [/]
+** TODO Implement
