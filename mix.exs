@@ -19,7 +19,8 @@ defmodule GuardianPaseto.MixProject do
 
   defp deps do
     [
-      {:paseto, "~> 0.3.0"}
+      {:paseto, "~> 1.0.0"},
+      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false}
     ]
   end
 end
