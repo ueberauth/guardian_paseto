@@ -16,6 +16,14 @@ defmodule Guardian.Token.Paseto do
   """
 
   @doc """
+  `revoke` callback specifically implemented for `Guardian.Token`.
+
+  NOTE: There is no actual revokation method for a Paseto, so this just returns the claims
+  """
+  @spec revoke(module(), map(), String.t(), Keyword.t()) :: {:ok, map()}
+  def revoke(_mod, claims, _token, _opts), do: {:ok, claims}
+
+  @doc """
   Generates a unique identifier for the token.
   """
   @spec token_id() :: String.t()

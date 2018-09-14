@@ -60,11 +60,13 @@ CLOSED: [2018-09-12 Mi 23:01]
 * TODO refresh/3 [0/1]
 ** TODO This can probably just return the same token--verify this.
   
-* TODO revoke/4 [1/2]
+* DONE revoke/4 [2/2]
+CLOSED: [2018-09-13 Do 21:47]
 ** DONE Determine what should be done here, this might not be possible?
 CLOSED: [2018-09-12 Mi 22:53]
 *** We should just return {:ok, claims()} here
-** TODO Implement
+** DONE Implement
+CLOSED: [2018-09-13 Do 21:47]
 * DONE token_id/0 [2/2]
 CLOSED: [2018-09-13 Do 21:41]
 ** DONE Determine what exactly this should return [1/1]
