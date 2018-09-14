@@ -37,8 +37,7 @@ CLOSED: [2018-09-14 Fr 14:39]
 CLOSED: [2018-09-12 Mi 22:54]
 *** Short, initial expectation is returns the claims?
 *** Seems to just return the decoded claims, only works for public
-** TODO Implement `decode_token/3`
-*** TODO Ensure this only works for public
+** TODO Implement `decode_token/3` [1/1]
 * TODO exchange/5 [1/2]
 ** DONE Determine how guardian keys are stored [2/2]
 CLOSED: [2018-09-12 Mi 23:01]
@@ -55,6 +54,7 @@ CLOSED: [2018-09-12 Mi 23:01]
    CLOSED: [2018-09-12 Mi 22:50]
 *** Short, initial expectation is returns the claims? Isn't this decode_token/3?
 *** NOTE: This will return the claims as a map
+** TODO Implement peek in `Paseto`
 ** TODO Implement `peek/3` [0/1]
 *** TODO Grab claims map and return that _only_ on public keys
 * TODO refresh/3 [0/1]
@@ -75,9 +75,12 @@ CLOSED: [2018-09-12 Mi 23:02]
 *** This can just be a UUID. The reference JWT impl just returns random UUID
 ** DONE Implement token_id/0
 CLOSED: [2018-09-13 Do 21:41]
-* TODO verify_claims/3 [0/1]
-** TODO Implement
-* TODO Questions
+* DONE verify_claims/3 [1/1]
+CLOSED: [2018-09-14 Fr 15:32]
+** DONE Implement
+CLOSED: [2018-09-14 Fr 15:32]
+* TODO Questions [/]
 ** TODO Where are `allowed_algos` declared as specific config value?
 * TODO Add tests for getting values from config
+* TODO Examples in the docs.
 * TODO Add @impl <module_name> if we can find the behavior

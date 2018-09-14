@@ -79,7 +79,8 @@ defmodule Guardian.Token.PasetoTest do
       {:ok, %Paseto.Token{payload: payload}} = Paseto.parse_token(token, secret_key)
       assert payload == claims
 
-      assert {:ok, claims} == GuardianPaseto.verify_claims(%{}, %{token: token}, kwargs)
+      {:ok, decoded_token} = GuardianPaseto.decode_token(%{}, token, kwargs)
+      assert {:ok, claims} == GuardianPaseto.verify_claims(%{}, decoded_token, kwargs)
     end
   end
 

@@ -60,6 +60,19 @@ defmodule Guardian.Token.Paseto do
   end
 
   @doc """
+  Handles decoding a token to get the claims.
+
+  NOTE: This is the first part of a 2-part hack involving `decode_token` and `verify_claims`. See `verify_claims` for more information, but, in short, we'll be returning the `token` within a map so that `verify_claims` can fully work.
+  """
+  @spec decode_token(mod :: module(), token :: String.t(), Keyword.t()) ::
+          {:ok, %{required(:token) => String.t()}}
+          | Guardian.secret_error()
+          | Guardian.decoding_error()
+  def decode_token(_mod, token, _opts) do
+    {:ok, %{token: token}}
+  end
+
+  @doc """
   `revoke` callback specifically implemented for `Guardian.Token`.
 
   NOTE: There is no actual revokation method for a Paseto, so this just returns the claims
