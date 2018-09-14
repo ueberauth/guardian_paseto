@@ -61,7 +61,7 @@ defmodule Guardian.Token.Paseto do
   @spec do_create_token(
           mod :: module(),
           claims :: map(),
-          Keyword.t() :: opts,
+          opts :: Keyword.t(),
           secret_key :: any() | nil
         ) ::
           {:ok, String.t()}
@@ -88,7 +88,7 @@ defmodule Guardian.Token.Paseto do
           {"v2", "public"}
       end
 
-    case Paseto.generate_token(version, purpose, claims, key) do
+    case Paseto.generate_token(version, purpose, claims, secret_key) do
       token when is_binary(token) ->
         {:ok, token}
 
