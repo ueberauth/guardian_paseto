@@ -19,10 +19,11 @@ defmodule GuardianPaseto.MixProject do
 
   defp deps do
     [
+      {:guardian, "~> 1.0", override: true},
       {:paseto, "~> 1.0.0"},
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:stream_data, "~> 0.1", only: :test},
-      { :elixir_uuid, "~> 1.2" }
+      {:elixir_uuid, "~> 1.2"}
     ]
   end
 end

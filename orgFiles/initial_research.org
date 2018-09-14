@@ -59,7 +59,6 @@ CLOSED: [2018-09-12 Mi 23:01]
   
 * TODO refresh/3 [0/1]
 ** TODO This can probably just return the same token--verify this.
-  
 * DONE revoke/4 [2/2]
 CLOSED: [2018-09-13 Do 21:47]
 ** DONE Determine what should be done here, this might not be possible?
@@ -79,3 +78,6 @@ CLOSED: [2018-09-13 Do 21:41]
 
 * TODO verify_claims/3 [0/1]
 ** TODO Implement
+* TODO Questions
+** TODO Where are `allowed_algos` declared as specific config value?
+* TODO Add tests for getting values from config
