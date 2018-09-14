@@ -51,14 +51,16 @@ CLOSED: [2018-09-12 Mi 23:01]
 **** They are fetched either from the `opts` in the function args
 **** OR, they're fetched from Guardian.Config.resolve_value
 ** TODO Implement exchange/5
-* TODO peek/2 [1/2]
+* TODO peek/2 [2/3]
 ** DONE Determine what exactly `peek/3` does
    CLOSED: [2018-09-12 Mi 22:50]
 *** Short, initial expectation is returns the claims? Isn't this decode_token/3?
 *** NOTE: This will return the claims as a map
-** TODO Implement peek in `Paseto`
-** TODO Implement `peek/3` [0/1]
-*** TODO Grab claims map and return that _only_ on public keys
+** DONE Implement peek in `Paseto`
+CLOSED: [2018-09-14 Fr 17:22]
+** TODO Implement `peek/3` [1/1]
+*** DONE Grab claims map and return that _only_ on public keys
+CLOSED: [2018-09-14 Fr 17:22]
 * DONE refresh/3 [1/1]
 CLOSED: [2018-09-14 Fr 15:44]
 ** DONE This can probably just return the same token--verify this.
@@ -86,8 +88,13 @@ CLOSED: [2018-09-14 Fr 15:32]
 CLOSED: [2018-09-14 Fr 15:32]
 * TODO Questions [/]
 ** TODO Where are `allowed_algos` declared as specific config value?
+** TODO How/when is peek used?
 * TODO Add tests for getting values from config
 * DONE Examples in the docs.
 CLOSED: [2018-09-14 Fr 15:47]
 ** Marking as done not because it is, but because this isn't going to be used by others. They can just provide this as a config value and it'll be automatica.
 * TODO Add @impl <module_name> if we can find the behavior
+* TODO README changes [/]
+** TODO Dependencies (erlang 20.1, libsodium-1.13 (?), and openssl v1.1)
+** TODO How to use
+** TODO (Potential) Say `peek` can't be used, dont know how this works.

@@ -81,6 +81,15 @@ defmodule Guardian.Token.PasetoTest do
 
       {:ok, decoded_token} = GuardianPaseto.decode_token(%{}, token, kwargs)
       assert {:ok, claims} == GuardianPaseto.verify_claims(%{}, decoded_token, kwargs)
+
+      case purpose do
+        "public" ->
+          assert Poison.decode!(claims) == GuardianPaseto.peek(%{}, token, kwargs)
+
+        "local" ->
+          assert {:error, :no_peek_for_encrypted_tokens} ==
+                   GuardianPaseto.peek(%{}, token, kwargs)
+      end
     end
   end
 

@@ -73,6 +73,24 @@ defmodule Guardian.Token.Paseto do
   end
 
   @doc """
+  Grabs the claims from the token _without_ having done any verification.
+
+  NOTE: This will only work on `public` purposed Paseto tokens due to the fact that encrytped tokens inherently can't be looked at without also verifying.
+  """
+  @spec peek(mod :: module(), token :: Guardian.token(), opts :: Keyword.t()) :: map()
+  def peek(_mod, token, _opts) do
+    token
+    |> Paseto.peek()
+    |> case do
+      claims when is_binary(claims) ->
+        Poison.decode!(claims)
+
+      error ->
+        error
+    end
+  end
+
+  @doc """
   Refreshes a token.
   """
   @spec refresh(mod :: module(), token :: Guardian.token(), opts :: Keyword.t()) ::
