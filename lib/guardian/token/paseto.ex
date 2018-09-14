@@ -77,8 +77,8 @@ defmodule Guardian.Token.Paseto do
 
   NOTE: This will only work on `public` purposed Paseto tokens due to the fact that encrytped tokens inherently can't be looked at without also verifying.
   """
-  @spec peek(mod :: module(), token :: Guardian.token(), opts :: Keyword.t()) :: map()
-  def peek(_mod, token, _opts) do
+  @spec peek(mod :: module(), token :: Guardian.token()) :: map()
+  def peek(_mod, token) do
     token
     |> Paseto.peek()
     |> case do

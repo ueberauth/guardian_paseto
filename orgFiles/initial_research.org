@@ -51,14 +51,16 @@ CLOSED: [2018-09-12 Mi 23:01]
 **** They are fetched either from the `opts` in the function args
 **** OR, they're fetched from Guardian.Config.resolve_value
 ** TODO Implement exchange/5
-* TODO peek/2 [2/3]
+* DONE peek/2 [3/3]
+CLOSED: [2018-09-14 Fr 17:29]
 ** DONE Determine what exactly `peek/3` does
    CLOSED: [2018-09-12 Mi 22:50]
 *** Short, initial expectation is returns the claims? Isn't this decode_token/3?
 *** NOTE: This will return the claims as a map
 ** DONE Implement peek in `Paseto`
 CLOSED: [2018-09-14 Fr 17:22]
-** TODO Implement `peek/3` [1/1]
+** DONE Implement `peek/3` [1/1]
+CLOSED: [2018-09-14 Fr 17:29]
 *** DONE Grab claims map and return that _only_ on public keys
 CLOSED: [2018-09-14 Fr 17:22]
 * DONE refresh/3 [1/1]
