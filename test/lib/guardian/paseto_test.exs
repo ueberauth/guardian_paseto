@@ -74,16 +74,12 @@ defmodule Guardian.Token.PasetoTest do
               secret_key <- secret_key_generator(version, purpose),
               chosen_version = [version, purpose] |> Enum.join("_") |> String.to_atom(),
               kwargs = [secret_key: secret_key, allowed_algos: chosen_version],
-              retval <- token_generator(claims, kwargs) do
-      case retval do
-        {:ok, token} ->
-          assert is_binary(token)
-          {:ok, %Paseto.Token{payload: payload}} = Paseto.parse_token(token, secret_key)
-          assert payload == claims
+              {:ok, token} <- token_generator(claims, kwargs) do
+      assert is_binary(token)
+      {:ok, %Paseto.Token{payload: payload}} = Paseto.parse_token(token, secret_key)
+      assert payload == claims
 
-        {:error, _reason} ->
-          refute true
-      end
+      assert {:ok, claims} == GuardianPaseto.verify_claims(%{}, %{token: token}, kwargs)
     end
   end
 

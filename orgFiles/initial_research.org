@@ -80,3 +80,4 @@ CLOSED: [2018-09-13 Do 21:41]
 * TODO Questions
 ** TODO Where are `allowed_algos` declared as specific config value?
 * TODO Add tests for getting values from config
+* TODO Add @impl <module_name> if we can find the behavior

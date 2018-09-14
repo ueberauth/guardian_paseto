@@ -74,6 +74,35 @@ defmodule Guardian.Token.Paseto do
   @spec token_id() :: String.t()
   def token_id, do: UUID.uuid4()
 
+  @doc """
+  Verifies a claims object was issued by the issuing key.
+
+  NOTE: The `claims` argument being passed in will actually be an entire token due to the limitations of verification for Guardian--in short, the entire token is needed to verify the validity of a Paseto.
+  """
+  @spec verify_claims(
+          mod :: module(),
+          token :: %{required(:token) => String.t()},
+          opts :: Keyword.t()
+        ) :: {:ok, Guardian.claims()} | {:error, any()}
+  def verify_claims(mod, %{token: token}, opts) do
+    secret_key =
+      mod
+      |> secret_key(opts)
+
+    token
+    |> Paseto.parse_token(secret_key)
+    |> case do
+      {:ok, %Paseto.Token{payload: payload}} ->
+        {:ok, payload}
+
+      {:error, error} = retval when is_atom(error) ->
+        retval
+
+      {:error, _error} ->
+        {:error, :verification_failed}
+    end
+  end
+
   ##############################
   # Internal Private Functions #
   ##############################
