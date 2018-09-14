@@ -59,8 +59,11 @@ CLOSED: [2018-09-12 Mi 23:01]
 ** TODO Implement peek in `Paseto`
 ** TODO Implement `peek/3` [0/1]
 *** TODO Grab claims map and return that _only_ on public keys
-* TODO refresh/3 [0/1]
-** TODO This can probably just return the same token--verify this.
+* DONE refresh/3 [1/1]
+CLOSED: [2018-09-14 Fr 15:44]
+** DONE This can probably just return the same token--verify this.
+CLOSED: [2018-09-14 Fr 15:44]
+*** It's a little more involved, but we essentially just verify the token and then return a new token.
 * DONE revoke/4 [2/2]
 CLOSED: [2018-09-13 Do 21:47]
 ** DONE Determine what should be done here, this might not be possible?
@@ -84,5 +87,7 @@ CLOSED: [2018-09-14 Fr 15:32]
 * TODO Questions [/]
 ** TODO Where are `allowed_algos` declared as specific config value?
 * TODO Add tests for getting values from config
-* TODO Examples in the docs.
+* DONE Examples in the docs.
+CLOSED: [2018-09-14 Fr 15:47]
+** Marking as done not because it is, but because this isn't going to be used by others. They can just provide this as a config value and it'll be automatica.
 * TODO Add @impl <module_name> if we can find the behavior

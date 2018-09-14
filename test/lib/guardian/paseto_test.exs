@@ -84,6 +84,21 @@ defmodule Guardian.Token.PasetoTest do
     end
   end
 
+  property "Property tests for revoke/3" do
+    check all claims <- claims_generator(),
+              version <- version_generator(),
+              purpose <- purpose_generator(),
+              secret_key <- secret_key_generator(version, purpose),
+              chosen_version = [version, purpose] |> Enum.join("_") |> String.to_atom(),
+              kwargs = [secret_key: secret_key, allowed_algos: chosen_version],
+              {:ok, token} <- token_generator(claims, kwargs),
+              {:ok, {_old_token, old_claims}, {_new_token, new_claims}} =
+                GuardianPaseto.refresh(%{}, token, kwargs) do
+      assert old_claims == new_claims
+      assert new_claims == claims
+    end
+  end
+
   property "Property tests for revoke/4" do
     check all claims <- claims_generator(),
               revokation_response = GuardianPaseto.revoke(%{}, claims, "token", []),

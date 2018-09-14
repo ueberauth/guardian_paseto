@@ -73,6 +73,23 @@ defmodule Guardian.Token.Paseto do
   end
 
   @doc """
+  Refreshes a token.
+  """
+  @spec refresh(mod :: module(), token :: Guardian.token(), opts :: Keyword.t()) ::
+          {:ok, {Guardian.token(), Guardian.claims()}, {Guardian.token(), Guardian.claims()}}
+          | {:error, any()}
+  def refresh(mod, original_token, opts) do
+    with {:ok, decoded_token} <- decode_token(mod, original_token, opts),
+         {:ok, original_claims} <- verify_claims(mod, decoded_token, opts),
+         {:ok, new_token} <- create_token(mod, original_claims, opts) do
+      {:ok, {original_token, original_claims}, {new_token, original_claims}}
+    else
+      error ->
+        error
+    end
+  end
+
+  @doc """
   `revoke` callback specifically implemented for `Guardian.Token`.
 
   NOTE: There is no actual revokation method for a Paseto, so this just returns the claims
