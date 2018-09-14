@@ -65,13 +65,15 @@ CLOSED: [2018-09-12 Mi 23:01]
 CLOSED: [2018-09-12 Mi 22:53]
 *** We should just return {:ok, claims()} here
 ** TODO Implement
-* TODO token_id/0 [1/2]
+* DONE token_id/0 [2/2]
+CLOSED: [2018-09-13 Do 21:41]
 ** DONE Determine what exactly this should return [1/1]
 CLOSED: [2018-09-12 Mi 23:02]
 *** DONE Should it always return same thing for a given token?
 CLOSED: [2018-09-12 Mi 23:02]
 *** This can just be a UUID. The reference JWT impl just returns random UUID
-** TODO Implement token_id/0
+** DONE Implement token_id/0
+CLOSED: [2018-09-13 Do 21:41]
 
 * TODO verify_claims/3 [0/1]
 ** TODO Implement

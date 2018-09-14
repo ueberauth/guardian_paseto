@@ -14,4 +14,10 @@ defmodule Guardian.Token.Paseto do
   * payload: A signed or encrypted & b64 encoded string
   * footer: An optional value, often used for storing keyIDs or other similar info.
   """
+
+  @doc """
+  Generates a unique identifier for the token.
+  """
+  @spec token_id() :: String.t()
+  def token_id, do: UUID.uuid4()
 end
