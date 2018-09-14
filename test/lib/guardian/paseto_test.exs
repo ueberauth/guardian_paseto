@@ -56,7 +56,7 @@ defmodule Guardian.Token.PasetoTest do
               version <- version_generator(),
               purpose <- purpose_generator(),
               secret_key <- secret_key_generator(version, purpose),
-              chosen_version = Enum.join([version, purpose], "_") |> String.to_atom(),
+              chosen_version = [version, purpose] |> Enum.join("_") |> String.to_atom(),
               kwargs = [secret_key: secret_key, allowed_algos: chosen_version],
               retval <- token_generator(claims, kwargs) do
       case retval do
