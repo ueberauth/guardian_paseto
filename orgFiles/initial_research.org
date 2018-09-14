@@ -28,8 +28,10 @@ CLOSED: [2018-09-12 Mi 22:39]
 CLOSED: [2018-09-14 Fr 14:38]
 ** DONE Implement
 CLOSED: [2018-09-14 Fr 14:38]
-* TODO create_token/3 [0/1]
-** TODO Implement
+* DONE create_token/3 [1/1]
+CLOSED: [2018-09-14 Fr 14:39]
+** DONE Implement
+CLOSED: [2018-09-14 Fr 14:39]
 * TODO decode_token/3 [1/2]
 ** DONE Determine what exactly `decode_token/3` does
 CLOSED: [2018-09-12 Mi 22:54]
