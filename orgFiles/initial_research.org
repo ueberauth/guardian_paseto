@@ -24,12 +24,12 @@ CLOSED: [2018-09-12 Mi 22:39]
 ** verify_claims/3 (mod, claims, opts) [0/0]
 *** Default and supported behavior
 
-* TODO build_claims/5 [0/1]
-** TODO Implement
-
+* DONE build_claims/5 [1/1]
+CLOSED: [2018-09-14 Fr 14:38]
+** DONE Implement
+CLOSED: [2018-09-14 Fr 14:38]
 * TODO create_token/3 [0/1]
 ** TODO Implement
-
 * TODO decode_token/3 [1/2]
 ** DONE Determine what exactly `decode_token/3` does
 CLOSED: [2018-09-12 Mi 22:54]
@@ -48,7 +48,6 @@ CLOSED: [2018-09-12 Mi 23:01]
 **** They are fetched either from the `opts` in the function args
 **** OR, they're fetched from Guardian.Config.resolve_value
 ** TODO Implement exchange/5
-  
 * TODO peek/2 [1/2]
 ** DONE Determine what exactly `peek/3` does
    CLOSED: [2018-09-12 Mi 22:50]
@@ -56,7 +55,6 @@ CLOSED: [2018-09-12 Mi 23:01]
 *** NOTE: This will return the claims as a map
 ** TODO Implement `peek/3` [0/1]
 *** TODO Grab claims map and return that _only_ on public keys
-  
 * TODO refresh/3 [0/1]
 ** TODO This can probably just return the same token--verify this.
 * DONE revoke/4 [2/2]
@@ -75,7 +73,6 @@ CLOSED: [2018-09-12 Mi 23:02]
 *** This can just be a UUID. The reference JWT impl just returns random UUID
 ** DONE Implement token_id/0
 CLOSED: [2018-09-13 Do 21:41]
-
 * TODO verify_claims/3 [0/1]
 ** TODO Implement
 * TODO Questions

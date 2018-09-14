@@ -21,6 +21,18 @@ defmodule Guardian.Token.Paseto do
   @typep paseto_versions :: :v1_local | :v1_public | :v2_local | :v2_public
 
   @doc """
+  Creates a Guardian.claims map with stringified keys.
+  """
+  @spec build_claims(mod :: module(), resource :: any(), sub :: String.t(), optional(claims) :: Guardian.claims(), optional(opts) :: Keyword.t()) :: {:ok, Guardian.claims()} | {:error, atom()}
+  def build_claims(_mod, _resource, _sub, claims \\ %{}, opts \\ [])
+  def build_claims(_mod, _resource, _sub, claims, _opts) do
+    stringified_claims = claims
+    |> Guardian.stringify_keys()
+
+    {:ok, stringified_claims}
+  end
+
+  @doc """
   Handles generating a token:
 
   Tokens are broken up into several components:
