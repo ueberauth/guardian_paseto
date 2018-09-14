@@ -32,12 +32,14 @@ CLOSED: [2018-09-14 Fr 14:38]
 CLOSED: [2018-09-14 Fr 14:39]
 ** DONE Implement
 CLOSED: [2018-09-14 Fr 14:39]
-* TODO decode_token/3 [1/2]
+* DONE decode_token/3 [2/2]
+CLOSED: [2018-09-14 Fr 15:37]
 ** DONE Determine what exactly `decode_token/3` does
 CLOSED: [2018-09-12 Mi 22:54]
 *** Short, initial expectation is returns the claims?
 *** Seems to just return the decoded claims, only works for public
-** TODO Implement `decode_token/3` [1/1]
+** DONE Implement `decode_token/3` [1/1]
+CLOSED: [2018-09-14 Fr 15:37]
 * TODO exchange/5 [1/2]
 ** DONE Determine how guardian keys are stored [2/2]
 CLOSED: [2018-09-12 Mi 23:01]
