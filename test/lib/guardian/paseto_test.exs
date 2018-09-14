@@ -5,12 +5,14 @@ defmodule Guardian.Token.PasetoTest do
   alias Guardian.Token.Paseto, as: GuardianPaseto
 
   defp claims_generator(_x \\ :string)
+
   defp claims_generator(:atom) do
     ExUnitProperties.gen all key <- StreamData.atom(:alphanumeric),
-      value <- StreamData.atom(:alphanumeric) do
+                             value <- StreamData.atom(:alphanumeric) do
       %{key => value}
     end
   end
+
   defp claims_generator(:string) do
     ExUnitProperties.gen all key <- StreamData.string(:ascii, min_length: 1),
                              value <- StreamData.string(:ascii, min_length: 1) do
@@ -60,8 +62,7 @@ defmodule Guardian.Token.PasetoTest do
 
   property "Property tests for build_claims/5" do
     check all claims <- claims_generator(:atom),
-    {:ok, built_claims} = GuardianPaseto.build_claims(%{}, %{}, %{}, claims) do
-
+              {:ok, built_claims} = GuardianPaseto.build_claims(%{}, %{}, %{}, claims) do
       assert Enum.all?(Enum.map(Map.keys(built_claims), &is_binary/1))
     end
   end
