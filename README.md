@@ -18,6 +18,69 @@ library to work on any computer:
     * This can be found at https://github.com/jedisct1/libsodium
 3. openssl >= 1.1 
     * This is needed for XChaCha-Poly1305 used for V2.Local Paseto
+    
+## How to use
+
+NOTE: This was basically 100% plagiarized from the Guardian documentation, so, for further configuration options, please visit their documentation at: [Guardian](https://github.com/ueberauth/guardian)
+
+Guardian requires that you create an "Implementation Module". This module is your applications implementation for a particular type/configuration of token. You do this by `use`ing Guardian in your module and adding the relevant configuration.
+
+Add Guardian to your application
+
+mix.exs
+
+```elixir
+defp deps do
+  [
+    {:guardian, "~> 1.0"},
+    {:guardian_paseto, "~> 0.1.0"}
+  ]
+end
+```
+
+Create a module that uses `Guardian`
+
+```elixir
+defmodule MyApp.Guardian do
+  use Guardian, otp_app: :my_app
+
+  def subject_for_token(resource, _claims) do
+    # You can use any value for the subject of your token but
+    # it should be useful in retrieving the resource later, see
+    # how it being used on `resource_from_claims/1` function.
+    # A unique `id` is a good subject, a non-unique email address
+    # is a poor subject.
+    sub = to_string(resource.id)
+    {:ok, sub}
+  end
+  def subject_for_token(_, _) do
+    {:error, :reason_for_error}
+  end
+
+  def resource_from_claims(claims) do
+    # Here we'll look up our resource from the claims, the subject can be
+    # found in the `"sub"` key. In `above subject_for_token/2` we returned
+    # the resource id so here we'll rely on that to look it up.
+    id = claims["sub"]
+    resource = MyApp.get_resource_by_id(id)
+    {:ok,  resource}
+  end
+  def resource_from_claims(_claims) do
+    {:error, :reason_for_error}
+  end
+end
+```
+
+Add your configuration
+
+```elixir
+config :my_app, MyApp.Guardian,
+       issuer: "my_app",
+       secret_key: "Secret key. You can use `mix guardian.gen.secret` to get one"
+       allowed_algos: [:v2_local]
+```
+
+With this level of configuration, you can have a working installation.
 
 ## Installation
 

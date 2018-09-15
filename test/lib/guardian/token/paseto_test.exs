@@ -2,6 +2,20 @@ defmodule Guardian.Token.PasetoTest do
   use ExUnit.Case
   use ExUnitProperties
 
+  defmodule TestingModule do
+    use Guardian,
+      otp_app: :testing_module,
+      token_module: Guardian.Token.Paseto
+
+    def subject_for_token(resource, _claims) do
+      {:ok, resource.id}
+    end
+
+    def resource_from_claims(claims) do
+      {:ok, claims}
+    end
+  end
+
   alias Guardian.Token.Paseto, as: GuardianPaseto
 
   defp claims_generator(_x \\ :string)
