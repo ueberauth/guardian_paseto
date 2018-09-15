@@ -40,7 +40,8 @@ CLOSED: [2018-09-12 Mi 22:54]
 *** Seems to just return the decoded claims, only works for public
 ** DONE Implement `decode_token/3` [1/1]
 CLOSED: [2018-09-14 Fr 15:37]
-* TODO exchange/5 [1/2]
+* DONE exchange/5 [2/2]
+CLOSED: [2018-09-14 Fr 17:55]
 ** DONE Determine how guardian keys are stored [2/2]
 CLOSED: [2018-09-12 Mi 23:01]
 *** DONE What type are they
@@ -50,7 +51,9 @@ CLOSED: [2018-09-12 Mi 22:59]
 CLOSED: [2018-09-12 Mi 23:01]
 **** They are fetched either from the `opts` in the function args
 **** OR, they're fetched from Guardian.Config.resolve_value
-** TODO Implement exchange/5
+** DONE Implement exchange/5
+CLOSED: [2018-09-14 Fr 17:55]
+*** Going to let this fallback to Guardian.Token impl
 * DONE peek/2 [3/3]
 CLOSED: [2018-09-14 Fr 17:29]
 ** DONE Determine what exactly `peek/3` does
@@ -88,15 +91,26 @@ CLOSED: [2018-09-13 Do 21:41]
 CLOSED: [2018-09-14 Fr 15:32]
 ** DONE Implement
 CLOSED: [2018-09-14 Fr 15:32]
-* TODO Questions [/]
+* TODO Questions [1/2]
 ** TODO Where are `allowed_algos` declared as specific config value?
-** TODO How/when is peek used?
+** DONE How/when is peek used?
+CLOSED: [2018-09-14 Fr 18:48]
+*** This seems to be used in the JWT module or the `revoke` call. I.e., it's pretty safe since we overrode both of those
 * TODO Add tests for getting values from config
 * DONE Examples in the docs.
 CLOSED: [2018-09-14 Fr 15:47]
 ** Marking as done not because it is, but because this isn't going to be used by others. They can just provide this as a config value and it'll be automatica.
 * TODO Add @impl <module_name> if we can find the behavior
-* TODO README changes [/]
-** TODO Dependencies (erlang 20.1, libsodium-1.13 (?), and openssl v1.1)
-** TODO How to use
-** TODO (Potential) Say `peek` can't be used, dont know how this works.
+* DONE Initial README changes [3/4]
+CLOSED: [2018-09-14 Fr 19:03]
+** DONE Dependencies (erlang 20.1, libsodium-1.13 (?), and openssl v1.1)
+CLOSED: [2018-09-14 Fr 18:59]
+** DONE (Potential) Say `peek` can't be used, dont know how this works.
+CLOSED: [2018-09-14 Fr 18:59]
+*** Since this is to be used as a config value (i.e., passed in and never called), we can assert peek isn't used and not warn.
+** DONE Badges
+CLOSED: [2018-09-14 Fr 19:02]
+* TODO Cleanup paseto_plug
+** TODO Config file
+** TODO Link to documentation properly
+* TODO Add description on how-to-use in README
