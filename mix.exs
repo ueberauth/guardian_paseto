@@ -26,7 +26,7 @@ defmodule GuardianPaseto.MixProject do
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
       {:stream_data, "~> 0.1", only: :test},
       {:elixir_uuid, "~> 1.2"},
-      {:ex_doc, "~> 0.14 and < 0.19.0", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.19.0", only: :dev, runtime: false}
     ]
   end
 
