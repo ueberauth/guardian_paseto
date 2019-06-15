@@ -4,8 +4,6 @@
 [![Hex.pm](https://img.shields.io/hexpm/v/guardian_paseto.svg)](https://hex.pm/packages/guardian_paseto)
 [HexDocs](https://hexdocs.pm/guardian_paseto/api-reference.html)
 
-**TODO: Add description**
-
 ## Considerations for using this library
 
 There are a few library/binary requirements required in order for the Paseto 
