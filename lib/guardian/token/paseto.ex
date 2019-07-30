@@ -158,7 +158,7 @@ defmodule Guardian.Token.Paseto do
 
   @spec do_create_token(
           mod :: module(),
-          claims :: map(),
+          claims :: String.t(),
           opts :: Keyword.t(),
           secret_key :: any() | nil
         ) ::
