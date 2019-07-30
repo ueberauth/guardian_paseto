@@ -23,6 +23,7 @@ defmodule GuardianPaseto.MixProject do
     [
       {:guardian, "~> 1.0"},
       {:paseto, "~> 1.3.0"},
+      {:poison, "~>3.1"},
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
       {:stream_data, "~> 0.1", only: :test},
       {:elixir_uuid, "~> 1.2"},
