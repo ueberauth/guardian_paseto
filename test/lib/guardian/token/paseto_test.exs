@@ -30,7 +30,7 @@ defmodule Guardian.Token.PasetoTest do
   defp claims_generator(:string) do
     ExUnitProperties.gen all key <- StreamData.string(:ascii, min_length: 1),
                              value <- StreamData.string(:ascii, min_length: 1) do
-      %{key => value} |> Poison.encode!()
+      %{key => value}
     end
   end
 
@@ -91,14 +91,14 @@ defmodule Guardian.Token.PasetoTest do
               {:ok, token} <- token_generator(claims, kwargs) do
       assert is_binary(token)
       {:ok, %Paseto.Token{payload: payload}} = Paseto.parse_token(token, secret_key)
-      assert payload == claims
+      assert payload == claims |> Poison.encode!()
 
       {:ok, decoded_token} = GuardianPaseto.decode_token(%{}, token, kwargs)
-      assert {:ok, claims} == GuardianPaseto.verify_claims(%{}, decoded_token, kwargs)
+      assert {:ok, claims |> Poison.encode!} == GuardianPaseto.verify_claims(%{}, decoded_token, kwargs)
 
       case purpose do
         "public" ->
-          assert Poison.decode!(claims) == GuardianPaseto.peek(%{}, token)
+          assert claims == GuardianPaseto.peek(%{}, token)
 
         "local" ->
           assert {:error, :no_peek_for_encrypted_tokens} == GuardianPaseto.peek(%{}, token)
@@ -117,7 +117,7 @@ defmodule Guardian.Token.PasetoTest do
               {:ok, {_old_token, old_claims}, {_new_token, new_claims}} =
                 GuardianPaseto.refresh(%{}, token, kwargs) do
       assert old_claims == new_claims
-      assert new_claims == claims
+      assert new_claims == claims |> Poison.encode!()
     end
   end
 
