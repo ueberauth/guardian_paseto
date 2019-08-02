@@ -31,7 +31,7 @@ mix.exs
 defp deps do
   [
     {:guardian, "~> 1.0"},
-    {:guardian_paseto, "~> 0.1.0"}
+    {:guardian_paseto, "~> 0.2.0"}
   ]
 end
 ```
