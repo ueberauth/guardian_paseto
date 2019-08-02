@@ -1,8 +1,9 @@
 # GuardianPaseto
 
-[![CircleCI](https://circleci.com/gh/GrappigPanda/guardian_paseto/tree/master.svg?style=svg)](https://circleci.com/gh/GrappigPanda/guardian_paseto/tree/master)
+[![CircleCI](https://img.shields.io/circleci/build/github/ueberauth/guardian_paseto)](https://circleci.com/gh/GrappigPanda/guardian_paseto/tree/master)
 [![Hex.pm](https://img.shields.io/hexpm/v/guardian_paseto.svg)](https://hex.pm/packages/guardian_paseto)
-[HexDocs](https://hexdocs.pm/guardian_paseto/api-reference.html)
+
+Docs can be found [Here](https://hexdocs.pm/guardian_paseto/api-reference.html)
 
 ## Considerations for using this library
 
