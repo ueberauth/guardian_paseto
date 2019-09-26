@@ -32,7 +32,7 @@ mix.exs
 defp deps do
   [
     {:guardian, "~> 1.0"},
-    {:guardian_paseto, "~> 0.2.0"}
+    {:guardian_paseto, "~> 0.2.1"}
   ]
 end
 ```
@@ -75,8 +75,8 @@ Add your configuration
 ```elixir
 config :my_app, MyApp.Guardian,
        issuer: "my_app",
-       secret_key: "Secret key. You can use `mix guardian.gen.secret` to get one"
-       allowed_algos: [:v2_local]
+       secret_key: "Secret key. You can use `:crypto.strong_rand_bytes(32)` to get one"
+       allowed_algos: :v2_local
 ```
 
 With this level of configuration, you can have a working installation.
@@ -89,7 +89,7 @@ dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:guardian_paseto, "~> 0.1.0"}
+    {:guardian_paseto, "~> 0.2.1"}
   ]
 end
 ```
