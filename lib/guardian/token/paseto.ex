@@ -56,7 +56,7 @@ defmodule Guardian.Token.Paseto do
           | Guardian.Token.secret_error()
   def create_token(mod, claims, opts) do
     key = secret_key(mod, opts)
-    do_create_token(mod, claims |> Poison.encode!, opts, key)
+    do_create_token(mod, claims |> Poison.encode!(), opts, key)
   end
 
   @doc """
