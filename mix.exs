@@ -22,7 +22,7 @@ defmodule GuardianPaseto.MixProject do
   defp deps do
     [
       {:guardian, "~> 1.0"},
-      {:paseto, "~> 1.3.0"},
+      {:paseto, "~> 1.3.1"},
       {:poison, "~>3.1"},
       {:credo, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:stream_data, "~> 0.1", only: :test},
