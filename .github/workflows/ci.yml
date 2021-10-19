@@ -18,6 +18,11 @@ jobs:
         with:
           elixir-version: '1.11'
           otp-version: '22.3'
+          
+      - name: Install build environment
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install libsodium-dev
 
       - name: Install Dependencies
         run: |
@@ -38,6 +43,11 @@ jobs:
         with:
           elixir-version: '1.11'
           otp-version: '22.3'
+
+      - name: Install build environment
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install libsodium-dev
 
       - name: Install Dependencies
         run: |
